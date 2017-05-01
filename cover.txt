@@ -1,0 +1,10 @@
+I am using Flask for this task.
+
+In order to run it please use virtual env "source bin/activate"
+and run the dependencies "pip -r requirements.txt".
+
+Geevent and grequests are requiere for parallel request async. 
+Request library is used for simplier Api calls. 
+
+Normally I will make another shared library for the api request to resuse them.
+The jinja template filter is used for making a nice date when rendering.
