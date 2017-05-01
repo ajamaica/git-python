@@ -29,11 +29,14 @@ def hello_world():
 	
 	urls_commits = []
 	for repo in items:
-		urls_commits.append("https://api.github.com/repos/%s/commits?client_id=%s&client_secret=%s" % (repo["full_name"],GIT_APP_ID ,GIT_APP_SECRET))
+		urls_commits.append("https://api.github.com/repos/%s/commits?client_id=%s&client_secret=%s" 
+									% (repo["full_name"],GIT_APP_ID ,GIT_APP_SECRET))
 		
 	rs = [grequests.get(u) for u in urls_commits]
 	all_res = grequests.map(rs)
-	all_commits = [{"sha" : u.json()[0]["sha"], "commit" : u.json()[0]["commit"] } for u in all_res]
+	
+	all_commits = [{"sha" : u.json()[0]["sha"], 
+					"commit" : u.json()[0]["commit"] } for u in all_res]
 		
 	return render_template('template.html', search_term=search_term, items = items,all_commits = all_commits)
 
