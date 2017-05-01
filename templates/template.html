@@ -11,7 +11,8 @@
 <a href="{{repository.owner.html_url}}"><img src="{{repository.owner.avatar_url}}" alt="avatar" height="42" width="42"/></a>
 {{repository.owner.login}}
 <h3>Last Commit</h3>
-{sha} {commit_message}  {commit_author_name}
+
+{{ all_commits[loop.index0].sha }} {{ all_commits[loop.index0].commit.message }}  {{ all_commits[loop.index0].commit.author.name }}
 <hr/>
 {% endfor %}
 </body>
